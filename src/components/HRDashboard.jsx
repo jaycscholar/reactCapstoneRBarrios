@@ -138,6 +138,32 @@ const HRDashboard = () => {
         }
     };
 
+    const handleApproveNewHire = async (id) => {
+        try {
+            const employee = employees.find(emp => emp.id === id);
+            const updatedEmployee = {
+                ...employee,
+                newEmployeeFlag: false,
+            };
+
+            const response = await fetch(`http://localhost:3001/employees/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedEmployee),
+            });
+
+            if (response.ok) {
+                setEmployees(employees.map(emp => emp.id === id ? updatedEmployee : emp));
+                setSuccessMessage('New hire approved!');
+                setTimeout(() => setSuccessMessage(''), 3000);
+            }
+        } catch (err) {
+            console.error('Error approving new hire:', err);
+        }
+    };
+
     if (loading) {
         return <div className="p-8 text-center text-gray-600">Loading employees...</div>;
     }
@@ -162,8 +188,9 @@ const HRDashboard = () => {
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="mb-8">
-                    <h1 className="text-4xl font-bold text-gray-800 mb-2">HR Dashboard</h1>
-                    <p className="text-gray-600">Manage employees and approve time requests</p>
+                    <h1 className="text-4xl font-bold text-gray-800 mb-2">HR Portal</h1>
+                    <p className="text-gray-600">Manage employees and approve growing season leave</p>
+                    <p className="text-sm text-green-600 font-semibold mt-1">LeafCorp Services</p>
                 </div>
 
                 {/* Success Message */}
@@ -176,12 +203,12 @@ const HRDashboard = () => {
                 {/* Search Bar */}
                 <div className="mb-6 bg-white rounded-lg shadow-sm p-4 flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
                     <div className="flex-1">
-                        <label className="block text-sm font-semibold text-gray-700 mb-1">Search employees</label>
+                        <label className="block text-sm font-semibold text-gray-700 mb-1">🔍 Search employee</label>
                         <input
                             type="text"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            placeholder="Search by name, username, assignment, or note"
+                            placeholder="Search by name, username, plant project, or note"
                             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
@@ -191,7 +218,7 @@ const HRDashboard = () => {
                 {/* Add Employee Card */}
                 <div className="mb-6">
                     <div className="bg-white rounded-lg shadow-sm p-4">
-                        <h3 className="text-lg font-semibold text-gray-800 mb-2">Add New Employee</h3>
+                        <h3 className="text-lg font-semibold text-gray-800 mb-2">🌱 Add New Employee</h3>
                         {addError && <div className="mb-3 p-2 bg-red-100 text-red-700 rounded">{addError}</div>}
                         <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
                             <input
@@ -223,9 +250,10 @@ const HRDashboard = () => {
                                                 employeeUser: newUserName,
                                                 employeePassword: newPassword,
                                                 address: '',
-                                                position: 'New Hire',
+                                                position: 'Junior Growth Specialist',
                                                 currentAssignment: '',
-                                                timeRequest: { startDate: '', endDate: '', approved: false, note: '' }
+                                                timeRequest: { startDate: '', endDate: '', approved: false, reviewed: false, note: '' },
+                                                newEmployeeFlag: true
                                             };
                                             const resp = await fetch('http://localhost:3001/employees', {
                                                 method: 'POST',
@@ -247,7 +275,7 @@ const HRDashboard = () => {
                                         }
                                     }}
                                     disabled={addLoading}
-                                    className={`w-full ${addLoading ? 'bg-gray-300 text-gray-600' : 'bg-blue-600 hover:bg-blue-700 text-white'} font-semibold py-2 px-3 rounded-lg transition`}
+                                    className={`w-full ${addLoading ? 'bg-gray-300 text-gray-600' : 'bg-green-600 hover:bg-green-700 text-white'} font-semibold py-2 px-3 rounded-lg transition`}
                                 >
                                     {addLoading ? 'Adding...' : 'Add Employee'}
                                 </button>
@@ -261,9 +289,12 @@ const HRDashboard = () => {
                     {filteredEmployees.map((employee) => (
                         <div key={employee.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-200">
                             {/* Card Header */}
-                            <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-4">
+                            <div className={`bg-gradient-to-r p-4 ${employee.newEmployeeFlag ? 'from-orange-500 to-orange-600' : 'from-blue-600 to-blue-700'}`}>
                                 <h2 className="text-xl font-bold text-white">{employee.employeeName}</h2>
-                                <p className="text-blue-100 text-sm">{employee.position}</p>
+                                <p className={`text-sm ${employee.newEmployeeFlag ? 'text-orange-100' : 'text-blue-100'}`}>{employee.position}</p>
+                                {employee.newEmployeeFlag && (
+                                    <span className="inline-block mt-2 bg-white text-orange-600 text-xs font-bold px-2 py-1 rounded">NEW HIRE</span>
+                                )}
 
  <div className="flex gap-2 mt-3">
                                             <button
@@ -300,6 +331,26 @@ const HRDashboard = () => {
                                             />
                                         </div>
                                         <div>
+                                            <label className="block text-sm font-semibold text-gray-700 mb-1">Username</label>
+                                            <input
+                                                type="text"
+                                                name="employeeUser"
+                                                value={editFormData.employeeUser || ''}
+                                                onChange={handleEditChange}
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-semibold text-gray-700 mb-1">Password</label>
+                                            <input
+                                                type="text"
+                                                name="employeePassword"
+                                                value={editFormData.employeePassword || ''}
+                                                onChange={handleEditChange}
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                                            />
+                                        </div>
+                                        <div>
                                             <label className="block text-sm font-semibold text-gray-700 mb-1">Position</label>
                                             <input
                                                 type="text"
@@ -320,7 +371,7 @@ const HRDashboard = () => {
                                             />
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-semibold text-gray-700 mb-1">Current Assignment</label>
+                                            <label className="block text-sm font-semibold text-gray-700 mb-1">Active Plant Project</label>
                                             <input
                                                 type="text"
                                                 name="currentAssignment"
@@ -376,17 +427,14 @@ const HRDashboard = () => {
                                                 <p className="text-gray-800 font-semibold text-sm">{employee.address}</p>
                                             </div>
                                             <div>
-                                                <p className="text-gray-600 text-xs">Assignment</p>
+                                                <p className="text-gray-600 text-xs">Plant Project</p>
                                                 <p className="text-gray-800 font-semibold text-sm">{employee.currentAssignment}</p>
-                                            
-                                            
-                                            
                                             </div>
                                         </div>
 
                                         {/* Time Request Section */}
                                         <div className="border-t pt-4 mb-4">
-                                            <p className="font-semibold text-gray-800 text-sm mb-2">Time Request</p>
+                                            <p className="font-semibold text-gray-800 text-sm mb-2">🌞 Growing Season Leave</p>
                                             <div className="bg-gray-50 p-3 rounded-lg space-y-1 text-sm">
                                                 <div>
                                                     <p className="text-gray-600 text-xs">Period</p>
@@ -430,6 +478,21 @@ const HRDashboard = () => {
                                             </div>
                                         </div>
 
+                                        {/* New Hire Approval Section */}
+                                        {employee.newEmployeeFlag && (
+                                            <div className="border-t pt-4 mt-4">
+                                                <div className="bg-orange-50 p-3 rounded-lg border border-orange-200 mb-3">
+                                                    <p className="text-orange-800 font-semibold text-sm mb-1">🌱 Pending New Employee Approval</p>
+                                                    <p className="text-orange-700 text-xs">Review employee information and approve to complete onboarding.</p>
+                                                </div>
+                                                <button
+                                                    onClick={() => handleApproveNewHire(employee.id)}
+                                                    className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-3 rounded-lg transition text-sm"
+                                                >
+                                                    ✓ Approve New Employee
+                                                </button>
+                                            </div>
+                                        )}
                                        
                                     </>
                                 )}

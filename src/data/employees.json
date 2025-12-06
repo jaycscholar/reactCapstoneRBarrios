@@ -70,7 +70,7 @@
       "employeePassword": "123x",
       "address": "123 fake street",
       "position": "Engineer",
-      "currentAssignment": "",
+      "currentAssignment": "none",
       "timeRequest": {
         "startDate": "",
         "endDate": "",
@@ -78,7 +78,58 @@
         "reviewed": false,
         "note": ""
       },
-      "newEmployeeFlag": true
+      "newEmployeeFlag": false
+    },
+    {
+      "id": "e588",
+      "employeeName": "Tony",
+      "employeeUser": "Tony",
+      "employeePassword": "123",
+      "address": "333 none",
+      "position": "New Hire",
+      "currentAssignment": "Sit",
+      "timeRequest": {
+        "startDate": "",
+        "endDate": "",
+        "approved": false,
+        "reviewed": false,
+        "note": ""
+      },
+      "newEmployeeFlag": false
+    },
+    {
+      "id": "66f1",
+      "employeeName": "Jose",
+      "employeeUser": "Jose",
+      "employeePassword": "111",
+      "address": "d",
+      "position": "New Hire",
+      "currentAssignment": "asdf",
+      "timeRequest": {
+        "startDate": "",
+        "endDate": "",
+        "approved": false,
+        "reviewed": false,
+        "note": ""
+      },
+      "newEmployeeFlag": false
+    },
+    {
+      "id": "74e0",
+      "employeeName": "Pokemon",
+      "employeeUser": "Pokemon",
+      "employeePassword": "fff",
+      "address": "123 my house",
+      "position": "New Hire",
+      "currentAssignment": "Develop",
+      "timeRequest": {
+        "startDate": "",
+        "endDate": "",
+        "approved": false,
+        "reviewed": false,
+        "note": ""
+      },
+      "newEmployeeFlag": false
     }
   ]
 }

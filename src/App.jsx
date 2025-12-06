@@ -1,4 +1,7 @@
 import React, {createContext, useState, useEffect} from "react";
+
+import homePage from "./components/Home.jsx";
+
 import Protected from "./components/EmployeeLogin/protected";
 import ProtectedHR from "./components/HRLogin/ProtectedHR";
 
@@ -26,7 +29,7 @@ const App = () => {
 
         <header className="bg-gradient-to-r from-blue-600 to-blue-800 shadow-lg sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 py-4">
-            <h3 className="text-white text-2xl font-bold mb-4">SLCorpManage</h3>
+            <h3 className="text-white text-2xl font-bold mb-4">LeafCorp Services</h3>
             <nav className="flex flex-wrap gap-2">
               <Link 
                 to='/' 
@@ -63,7 +66,7 @@ const App = () => {
         </header>
 
         <Routes>
-          <Route path="/" element={<div>Nothing here</div>} />
+          <Route path="/" element={<homePage />} />
           <Route path="/LoginEmployee" element={<LoginEmployee />} />
       
            <Route path="/userDashboard" element={

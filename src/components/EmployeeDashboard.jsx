@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
+import NewEmployeeOnboarding from './NewEmployeeOnboarding';
 
 const EmployeeDashboard = () => {
   const { currentUser } = useAuth();
@@ -213,6 +214,7 @@ const EmployeeDashboard = () => {
           startDate: timeRequestData.startDate,
           endDate: timeRequestData.endDate,
           approved: false, // New requests start as pending
+          reviewed: false,
           note: timeRequestData.note,
         },
       };
@@ -251,6 +253,11 @@ const EmployeeDashboard = () => {
     return <div className="p-8 text-center text-gray-600">No employee data found</div>;
   }
 
+  // Show onboarding form for new employees
+  if (employee.newEmployeeFlag) {
+    return <NewEmployeeOnboarding />;
+  }
+
   return (
     <div className="p-8 bg-gray-50 min-h-screen">
       <div className="max-w-4xl mx-auto">
@@ -263,8 +270,9 @@ const EmployeeDashboard = () => {
 
         {/* Header */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">Welcome, {employee.employeeName}!</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">🌿 Welcome, {employee.employeeName}!</h1>
           <p className="text-gray-600">{employee.position}</p>
+          <p className="text-sm text-green-600 font-semibold mt-1">LeafCorp Services</p>
         </div>
 
         {/* Main Content Grid */}
@@ -346,7 +354,7 @@ const EmployeeDashboard = () => {
                 <p className="text-gray-800 font-semibold">{employee.position}</p>
               </div>
               <div className="pt-3 border-t">
-                <p className="text-gray-600 text-sm">Current Assignment</p>
+                <p className="text-gray-600 text-sm">Active Plant Project</p>
                 {!assignmentEditMode ? (
                   <>
                     <p className="text-gray-800 font-semibold">{employee.currentAssignment}</p>
@@ -355,9 +363,9 @@ const EmployeeDashboard = () => {
                         setAssignmentValue(employee.currentAssignment || '');
                         setAssignmentEditMode(true);
                       }}
-                      className="mt-2 inline-flex items-center px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg transition"
+                      className="mt-2 inline-flex items-center px-3 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold rounded-lg transition"
                     >
-                      Edit Current Assignment
+                      Edit Active Project
                     </button>
                   </>
                 ) : (
@@ -392,7 +400,7 @@ const EmployeeDashboard = () => {
           {/* Time Request Information */}
           {!timeRequestMode ? (
             <div className="bg-white rounded-lg shadow-md p-6 md:col-span-2">
-              <h2 className="text-xl font-bold text-gray-800 mb-4">Time Request</h2>
+              <h2 className="text-xl font-bold text-gray-800 mb-4">🌞 Growing Season Leave</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
                   <p className="text-gray-600 text-sm">Start Date</p>
@@ -415,14 +423,14 @@ const EmployeeDashboard = () => {
               </div>
               <button
                 onClick={() => setTimeRequestMode(true)}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition"
+                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition"
               >
-                New Time Request
+                New Leave Request
               </button>
             </div>
           ) : (
             <div className="bg-white rounded-lg shadow-md p-6 md:col-span-2">
-              <h2 className="text-xl font-bold text-gray-800 mb-4">Submit New Time Request</h2>
+              <h2 className="text-xl font-bold text-gray-800 mb-4">Submit New Leave Request</h2>
               <form onSubmit={handleTimeRequestSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
