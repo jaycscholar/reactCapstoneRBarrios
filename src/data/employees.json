@@ -85,8 +85,8 @@
         "startDate": "",
         "endDate": "",
         "approved": false,
-        "reviewed": false,
-        "note": ""
+        "reviewed": true,
+        "note": "kjh"
       },
       "newEmployeeFlag": false
     },
@@ -287,11 +287,11 @@
       "position": "Engineer",
       "currentAssignment": "doing stuff",
       "timeRequest": {
-        "startDate": "",
-        "endDate": "",
-        "approved": true,
-        "reviewed": true,
-        "note": ""
+        "startDate": "2025-12-22",
+        "endDate": "2025-12-30",
+        "approved": false,
+        "reviewed": false,
+        "note": "Hey"
       },
       "newEmployeeFlag": false
     },
