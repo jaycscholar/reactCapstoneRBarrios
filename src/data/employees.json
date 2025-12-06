@@ -280,20 +280,20 @@
     },
     {
       "id": "b7c5",
-      "employeeName": "",
+      "employeeName": "Jay",
       "employeeUser": "Moses",
       "employeePassword": "gen",
-      "address": "",
-      "position": "",
-      "currentAssignment": "",
+      "address": "123 fake street 2",
+      "position": "Engineer",
+      "currentAssignment": "doing stuff",
       "timeRequest": {
         "startDate": "",
         "endDate": "",
-        "approved": false,
-        "reviewed": false,
+        "approved": true,
+        "reviewed": true,
         "note": ""
       },
-      "newEmployeeFlag": true
+      "newEmployeeFlag": false
     },
     {
       "id": "dc65",

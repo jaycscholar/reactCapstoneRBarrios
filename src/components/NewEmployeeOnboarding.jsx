@@ -114,7 +114,7 @@ const NewEmployeeOnboarding = () => {
           <form onSubmit={handleCompleteOnboarding} className="space-y-6">
             <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
               <p className="text-green-800 font-semibold text-sm">🌱 New Employee Onboarding</p>
-              <p className="text-green-700 text-xs mt-1">Fill in your details below. The Head Horticulturist will review and approve your profile.</p>
+              <p className="text-green-700 text-xs mt-1">Fill in your details below. HR will review and approve your profile.</p>
             </div>
 
             <div>
