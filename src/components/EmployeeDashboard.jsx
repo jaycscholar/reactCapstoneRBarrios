@@ -24,6 +24,8 @@ const EmployeeDashboard = () => {
     newPassword: '',
     confirmPassword: '',
   });
+  const [bioEditMode, setBioEditMode] = useState(false);
+  const [bioValue, setBioValue] = useState('');
 
   useEffect(() => {
     const fetchEmployeeData = async () => {
@@ -41,6 +43,7 @@ const EmployeeDashboard = () => {
           setEmployee(employeeData);
           setEditFormData(employeeData);
           setAssignmentValue(employeeData.currentAssignment || '');
+          setBioValue(employeeData.bio || '');
         } else {
           setError('Employee data not found');
         }
@@ -133,6 +136,40 @@ const EmployeeDashboard = () => {
   const handleAssignmentCancel = () => {
     setAssignmentValue(employee.currentAssignment || '');
     setAssignmentEditMode(false);
+  };
+
+  // Handle bio save
+  const handleBioSave = async () => {
+    try {
+      const updatedEmployee = {
+        ...employee,
+        bio: bioValue,
+      };
+
+      const response = await fetch(`http://localhost:3001/employees/${employee.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedEmployee),
+      });
+
+      if (response.ok) {
+        setEmployee(updatedEmployee);
+        setBioEditMode(false);
+        setSubmitMessage('✓ Bio updated successfully!');
+        setTimeout(() => setSubmitMessage(''), 3000);
+      } else {
+        setSubmitMessage('✗ Failed to update bio');
+      }
+    } catch (err) {
+      setSubmitMessage(`✗ Error: ${err.message}`);
+    }
+  };
+
+  const handleBioCancel = () => {
+    setBioValue(employee.bio || '');
+    setBioEditMode(false);
   };
 
   // Handle password change form input change
@@ -394,6 +431,51 @@ const EmployeeDashboard = () => {
                   </div>
                 )}
               </div>
+            </div>
+          </div>
+
+          {/* Bio Section */}
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-bold text-gray-800 mb-4">About Me</h2>
+            <div className="space-y-3">
+              {!bioEditMode ? (
+                <>
+                  <p className="text-gray-800">{employee.bio || 'No bio added yet.'}</p>
+                  <button
+                    onClick={() => {
+                      setBioValue(employee.bio || '');
+                      setBioEditMode(true);
+                    }}
+                    className="mt-2 inline-flex items-center px-3 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold rounded-lg transition"
+                  >
+                    Edit Bio
+                  </button>
+                </>
+              ) : (
+                <div className="space-y-2">
+                  <textarea
+                    value={bioValue}
+                    onChange={(e) => setBioValue(e.target.value)}
+                    placeholder="Tell us about yourself..."
+                    rows="4"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                  />
+                  <div className="flex gap-2">
+                    <button
+                      onClick={handleBioSave}
+                      className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition"
+                    >
+                      Save
+                    </button>
+                    <button
+                      onClick={handleBioCancel}
+                      className="flex-1 bg-gray-400 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded-lg transition"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 

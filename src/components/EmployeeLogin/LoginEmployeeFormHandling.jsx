@@ -52,8 +52,7 @@ function BasicFormHandling() {
         );
 
         if (employee && employee.employeePassword === formValues.password) {
-          console.log("Form submitted with values: ", formValues);
-          console.log("Credentials verified successfully!");
+
           signIn(formValues.userName);
         } else {
           errorsCopy.auth = true;

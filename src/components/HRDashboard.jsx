@@ -189,7 +189,7 @@ const HRDashboard = () => {
                 {/* Header */}
                 <div className="mb-8">
                     <h1 className="text-4xl font-bold text-gray-800 mb-2">HR Portal</h1>
-                    <p className="text-gray-600">Manage employees and approve growing season leave</p>
+                    <p className="text-gray-600">Manage employees and approve Time Off</p>
                     <p className="text-sm text-green-600 font-semibold mt-1">LeafCorp Services</p>
                 </div>
 
@@ -246,11 +246,11 @@ const HRDashboard = () => {
                                         setAddLoading(true);
                                         try {
                                             const newEmployee = {
-                                                employeeName: newUserName,
+                                                employeeName: '',
                                                 employeeUser: newUserName,
                                                 employeePassword: newPassword,
                                                 address: '',
-                                                position: 'Junior Growth Specialist',
+                                                position: '',
                                                 currentAssignment: '',
                                                 timeRequest: { startDate: '', endDate: '', approved: false, reviewed: false, note: '' },
                                                 newEmployeeFlag: true
@@ -265,8 +265,8 @@ const HRDashboard = () => {
                                             setEmployees(prev => [created, ...prev]);
                                             setNewUserName('');
                                             setNewPassword('');
-                                            setSuccessMessage('New employee added');
-                                            setTimeout(() => setSuccessMessage(''), 3000);
+                                            setSuccessMessage('New employee added! Give them their username and password so they can input their information.');
+                                            setTimeout(() => setSuccessMessage(''), 5000);
                                         } catch (err) {
                                             console.error('Error adding employee:', err);
                                             setAddError('Failed to add employee');
@@ -434,7 +434,7 @@ const HRDashboard = () => {
 
                                         {/* Time Request Section */}
                                         <div className="border-t pt-4 mb-4">
-                                            <p className="font-semibold text-gray-800 text-sm mb-2">🌞 Growing Season Leave</p>
+                                            <p className="font-semibold text-gray-800 text-sm mb-2">🌞 Time Off</p>
                                             <div className="bg-gray-50 p-3 rounded-lg space-y-1 text-sm">
                                                 <div>
                                                     <p className="text-gray-600 text-xs">Period</p>
@@ -483,7 +483,7 @@ const HRDashboard = () => {
                                             <div className="border-t pt-4 mt-4">
                                                 <div className="bg-orange-50 p-3 rounded-lg border border-orange-200 mb-3">
                                                     <p className="text-orange-800 font-semibold text-sm mb-1">🌱 Pending New Employee Approval</p>
-                                                    <p className="text-orange-700 text-xs">Review employee information and approve to complete onboarding.</p>
+                                                    <p className="text-orange-700 text-xs">Have employee login to their profile and update personal details, or review employee information here and approve to complete onboarding.</p>
                                                 </div>
                                                 <button
                                                     onClick={() => handleApproveNewHire(employee.id)}

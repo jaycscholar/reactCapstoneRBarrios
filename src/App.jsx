@@ -1,6 +1,6 @@
 import React, {createContext, useState, useEffect} from "react";
 
-import homePage from "./components/Home.jsx";
+import HomePage from "./components/Home.jsx";
 
 import Protected from "./components/EmployeeLogin/protected";
 import ProtectedHR from "./components/HRLogin/ProtectedHR";
@@ -19,8 +19,7 @@ import {Link} from 'react-router-dom';
 
 
 const App = () => {
-
-
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     
@@ -29,35 +28,59 @@ const App = () => {
 
         <header className="bg-gradient-to-r from-blue-600 to-blue-800 shadow-lg sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 py-4">
-            <h3 className="text-white text-2xl font-bold mb-4">LeafCorp Services</h3>
-            <nav className="flex flex-wrap gap-2">
+            <div className="flex justify-between items-center">
+              <h3 className="text-white text-2xl font-bold">LeafCorp</h3>
+              
+              {/* Hamburger Menu Button - Only visible on small screens */}
+              <button 
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="md:hidden text-white focus:outline-none"
+                aria-label="Toggle menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {menuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
+
+            {/* Navigation Menu - Hidden on mobile, shown in hamburger */}
+            <nav className={`${menuOpen ? 'block' : 'hidden'} md:flex md:flex-wrap gap-2 mt-4`}>
               <Link 
                 to='/' 
-                className="inline-block px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105"
+                onClick={() => setMenuOpen(false)}
+                className="block md:inline-block px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105 mb-2 md:mb-0"
               >
                 🏠 Home
               </Link>
               <Link 
                 to='/LoginEmployee' 
-                className="inline-block px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105"
+                onClick={() => setMenuOpen(false)}
+                className="block md:inline-block px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105 mb-2 md:mb-0"
               >
                 👤 Employee Login
               </Link>
               <Link 
                 to='/userDashboard' 
-                className="inline-block px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105"
+                onClick={() => setMenuOpen(false)}
+                className="block md:inline-block px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105 mb-2 md:mb-0"
               >
                 📊 Employee Dashboard
               </Link>
               <Link 
                 to='/LoginHR' 
-                className="inline-block px-4 py-2 bg-green-500 hover:bg-green-400 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105"
+                onClick={() => setMenuOpen(false)}
+                className="block md:inline-block px-4 py-2 bg-green-500 hover:bg-green-400 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105 mb-2 md:mb-0"
               >
                 👔 HR Login
               </Link>
               <Link 
                 to='/HRDashboard' 
-                className="inline-block px-4 py-2 bg-green-500 hover:bg-green-400 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105"
+                onClick={() => setMenuOpen(false)}
+                className="block md:inline-block px-4 py-2 bg-green-500 hover:bg-green-400 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105 mb-2 md:mb-0"
               >
                 💼 HR Dashboard
               </Link>
@@ -66,7 +89,7 @@ const App = () => {
         </header>
 
         <Routes>
-          <Route path="/" element={<homePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/LoginEmployee" element={<LoginEmployee />} />
       
            <Route path="/userDashboard" element={

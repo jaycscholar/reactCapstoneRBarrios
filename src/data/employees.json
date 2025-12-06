@@ -7,6 +7,8 @@
       "employeePassword": "cat",
       "address": "123 Oak Street, Springfield, IL 62701",
       "position": "Senior Software Engineer",
+      "bio": "Experienced software engineer with expertise in scalable backend systems",
+      "image": "/employeeImages/person5.jpg",
       "currentAssignment": "Backend API Development",
       "timeRequest": {
         "startDate": "2025-12-21",
@@ -23,6 +25,8 @@
       "employeePassword": "pass456",
       "address": "456 Maple Avenue, Chicago, IL 60601",
       "position": "Product Manager",
+      "bio": "Strategic product leader focused on mobile innovation and user experience",
+      "image": "/employeeImages/Person1.jpg",
       "currentAssignment": "Mobile App Strategy",
       "timeRequest": {
         "startDate": "2025-12-22",
@@ -39,6 +43,8 @@
       "employeePassword": "secure789",
       "address": "789 Pine Road, Milwaukee, WI 53202",
       "position": "UI/UX Designer",
+      "bio": "Creative designer passionate about crafting intuitive user interfaces",
+      "image": "/employeeImages/Person3.jpg",
       "currentAssignment": "Dashboard Redesign Project",
       "timeRequest": {
         "startDate": "2025-12-10",
@@ -55,6 +61,8 @@
       "employeePassword": "Rosary",
       "address": "",
       "position": "New Hire",
+      "bio": "New team member ready to contribute",
+      "image": "/employeeImages/_placeholder.jpg",
       "currentAssignment": "",
       "timeRequest": {
         "startDate": "",
@@ -70,6 +78,8 @@
       "employeePassword": "123x",
       "address": "123 fake street",
       "position": "Engineer",
+      "bio": "Dedicated engineer with a passion for problem-solving",
+      "image": "/employeeImages/_placeholder.jpg",
       "currentAssignment": "none",
       "timeRequest": {
         "startDate": "",
@@ -87,6 +97,8 @@
       "employeePassword": "123",
       "address": "333 none",
       "position": "New Hire",
+      "bio": "Enthusiastic new hire eager to learn and grow",
+      "image": "/employeeImages/_placeholder.jpg",
       "currentAssignment": "Sit",
       "timeRequest": {
         "startDate": "",
@@ -104,6 +116,8 @@
       "employeePassword": "111",
       "address": "d",
       "position": "New Hire",
+      "bio": "Fresh perspective and new ideas",
+      "image": "/employeeImages/_placeholder.jpg",
       "currentAssignment": "asdf",
       "timeRequest": {
         "startDate": "",
@@ -121,6 +135,8 @@
       "employeePassword": "fff",
       "address": "123 my house",
       "position": "New Hire",
+      "bio": "Motivated newcomer ready to make an impact",
+      "image": "/employeeImages/_placeholder.jpg",
       "currentAssignment": "Develop",
       "timeRequest": {
         "startDate": "",
@@ -130,6 +146,205 @@
         "note": ""
       },
       "newEmployeeFlag": false
+    },
+    {
+      "id": "7",
+      "employeeName": "Sarah Greenleaf",
+      "employeeUser": "SarahG10",
+      "employeePassword": "leaf2024",
+      "address": "123 Tropical Lane, Miami, FL 33101",
+      "position": "Senior Plant Specialist",
+      "bio": "10 years of experience in tropical plant care",
+      "image": "/employeeimages/person7.jpg",
+      "currentAssignment": "Monstera Maintenance Project",
+      "timeRequest": {
+        "startDate": "",
+        "endDate": "",
+        "approved": false,
+        "reviewed": false,
+        "note": ""
+      },
+      "newEmployeeFlag": false
+    },
+    {
+      "id": "8",
+      "employeeName": "Mike Fernandez",
+      "employeeUser": "MikeF42",
+      "employeePassword": "cactus123",
+      "address": "456 Desert Drive, Phoenix, AZ 85001",
+      "position": "Succulent Care Expert",
+      "bio": "Certified in desert plant hydration management",
+      "image": "/employeeimages/Person2.jpg",
+      "currentAssignment": "Aloe Vera Hydration Study",
+      "timeRequest": {
+        "startDate": "",
+        "endDate": "",
+        "approved": false,
+        "reviewed": false,
+        "note": ""
+      },
+      "newEmployeeFlag": false
+    },
+    {
+      "id": "9",
+      "employeeName": "Emily Blossom",
+      "employeeUser": "EmilyB77",
+      "employeePassword": "orchid456",
+      "address": "789 Garden Way, Portland, OR 97201",
+      "position": "Orchid Coordinator",
+      "bio": "Specialist in exotic flowering plant maintenance",
+      "image": "/employeeimages/person5.jpg",
+      "currentAssignment": "Phalaenopsis Care Initiative",
+      "timeRequest": {
+        "startDate": "",
+        "endDate": "",
+        "approved": false,
+        "reviewed": false,
+        "note": ""
+      },
+      "newEmployeeFlag": false
+    },
+    {
+      "id": "10",
+      "employeeName": "David Rootwell",
+      "employeeUser": "DavidR55",
+      "employeePassword": "fern789",
+      "address": "321 Forest Avenue, Seattle, WA 98101",
+      "position": "Tree & Fern Manager",
+      "bio": "Expert in large indoor plant systems",
+      "image": "/employeeimages/Person3.jpg",
+      "currentAssignment": "Indoor Tree Health Assessment",
+      "timeRequest": {
+        "startDate": "",
+        "endDate": "",
+        "approved": false,
+        "reviewed": false,
+        "note": ""
+      },
+      "newEmployeeFlag": false
+    },
+    {
+      "id": "11",
+      "employeeName": "Lisa Sprout",
+      "employeeUser": "LisaS33",
+      "employeePassword": "herb2024",
+      "address": "654 Basil Boulevard, Austin, TX 78701",
+      "position": "Junior Growth Specialist",
+      "bio": "Passionate about herb gardens and kitchen plants",
+      "image": "/employeeimages/Person4.jpg",
+      "currentAssignment": "Kitchen Herb Garden Setup",
+      "timeRequest": {
+        "startDate": "",
+        "endDate": "",
+        "approved": false,
+        "reviewed": false,
+        "note": ""
+      },
+      "newEmployeeFlag": false
+    },
+    {
+      "id": "12",
+      "employeeName": "Tom Waterston",
+      "employeeUser": "TomW99",
+      "employeePassword": "water321",
+      "address": "987 Aqua Street, Denver, CO 80201",
+      "position": "Hydration Technician",
+      "bio": "Masters in plant watering schedules and soil moisture",
+      "image": "/employeeimages/Person1.jpg",
+      "currentAssignment": "Automated Watering System Development",
+      "timeRequest": {
+        "startDate": "",
+        "endDate": "",
+        "approved": false,
+        "reviewed": false,
+        "note": ""
+      },
+      "newEmployeeFlag": false
+    },
+    {
+      "id": "15ff",
+      "employeeName": "MauriceS73",
+      "employeeUser": "MauriceS73",
+      "employeePassword": "rrr",
+      "address": "",
+      "position": "Junior Growth Specialist",
+      "currentAssignment": "",
+      "timeRequest": {
+        "startDate": "",
+        "endDate": "",
+        "approved": false,
+        "reviewed": false,
+        "note": ""
+      },
+      "newEmployeeFlag": false
+    },
+    {
+      "id": "b7c5",
+      "employeeName": "",
+      "employeeUser": "Moses",
+      "employeePassword": "gen",
+      "address": "",
+      "position": "",
+      "currentAssignment": "",
+      "timeRequest": {
+        "startDate": "",
+        "endDate": "",
+        "approved": false,
+        "reviewed": false,
+        "note": ""
+      },
+      "newEmployeeFlag": true
+    },
+    {
+      "id": "dc65",
+      "employeeName": "",
+      "employeeUser": "Jay123",
+      "employeePassword": "123",
+      "address": "",
+      "position": "",
+      "currentAssignment": "",
+      "timeRequest": {
+        "startDate": "",
+        "endDate": "",
+        "approved": false,
+        "reviewed": false,
+        "note": ""
+      },
+      "newEmployeeFlag": true
+    },
+    {
+      "id": "1143",
+      "employeeName": "",
+      "employeeUser": "jose",
+      "employeePassword": "123",
+      "address": "",
+      "position": "",
+      "currentAssignment": "",
+      "timeRequest": {
+        "startDate": "",
+        "endDate": "",
+        "approved": false,
+        "reviewed": false,
+        "note": ""
+      },
+      "newEmployeeFlag": true
+    },
+    {
+      "id": "ac43",
+      "employeeName": "",
+      "employeeUser": "Homer",
+      "employeePassword": "123",
+      "address": "",
+      "position": "",
+      "currentAssignment": "",
+      "timeRequest": {
+        "startDate": "",
+        "endDate": "",
+        "approved": false,
+        "reviewed": false,
+        "note": ""
+      },
+      "newEmployeeFlag": true
     }
   ]
 }
