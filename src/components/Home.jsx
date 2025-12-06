@@ -7,7 +7,7 @@ const HomePage = () => {
     useEffect(() => {
         const fetchEmployees = async () => {
             try {
-                const response = await fetch('http://localhost:3001/employees');
+                const response = await fetch('https://react-capstone-node-json-server.vercel.app/employees');
                 const data = await response.json();
                 
                 // Filter for the LeafCorp gardeners (IDs 7-12)

@@ -22,7 +22,7 @@ const HRDashboard = () => {
     const fetchEmployees = async () => {
         try {
             setLoading(true);
-            const response = await fetch('http://localhost:3001/employees');
+            const response = await fetch('https://react-capstone-node-json-server.vercel.app/employees');
             const data = await response.json();
             setEmployees(data);
         } catch (err) {
@@ -63,7 +63,7 @@ const HRDashboard = () => {
 
     const handleSaveEmployee = async (id) => {
         try {
-            const response = await fetch(`http://localhost:3001/employees/${id}`, {
+            const response = await fetch(`https://react-capstone-node-json-server.vercel.app/employees/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ const HRDashboard = () => {
                 },
             };
 
-            const response = await fetch(`http://localhost:3001/employees/${id}`, {
+            const response = await fetch(`https://react-capstone-node-json-server.vercel.app/employees/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ const HRDashboard = () => {
         const ok = window.confirm('Delete this employee? This action cannot be undone.');
         if (!ok) return;
         try {
-            const response = await fetch(`http://localhost:3001/employees/${id}`, {
+            const response = await fetch(`https://react-capstone-node-json-server.vercel.app/employees/${id}`, {
                 method: 'DELETE',
             });
             if (response.ok) {
@@ -146,7 +146,7 @@ const HRDashboard = () => {
                 newEmployeeFlag: false,
             };
 
-            const response = await fetch(`http://localhost:3001/employees/${id}`, {
+            const response = await fetch(`https://react-capstone-node-json-server.vercel.app/employees/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -255,7 +255,7 @@ const HRDashboard = () => {
                                                 timeRequest: { startDate: '', endDate: '', approved: false, reviewed: false, note: '' },
                                                 newEmployeeFlag: true
                                             };
-                                            const resp = await fetch('http://localhost:3001/employees', {
+                                            const resp = await fetch('https://react-capstone-node-json-server.vercel.app/employees', {
                                                 method: 'POST',
                                                 headers: { 'Content-Type': 'application/json' },
                                                 body: JSON.stringify(newEmployee),

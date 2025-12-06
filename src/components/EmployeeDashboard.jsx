@@ -31,7 +31,7 @@ const EmployeeDashboard = () => {
     const fetchEmployeeData = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:3001/employees');
+        const response = await fetch('https://react-capstone-node-json-server.vercel.app/employees');
         const data = await response.json();
 
         // Find the employee that matches the current user
@@ -82,7 +82,7 @@ const EmployeeDashboard = () => {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:3001/employees/${employee.id}`, {
+      const response = await fetch(`https://react-capstone-node-json-server.vercel.app/employees/${employee.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ const EmployeeDashboard = () => {
         currentAssignment: assignmentValue,
       };
 
-      const response = await fetch(`http://localhost:3001/employees/${employee.id}`, {
+      const response = await fetch(`https://react-capstone-node-json-server.vercel.app/employees/${employee.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -146,7 +146,7 @@ const EmployeeDashboard = () => {
         bio: bioValue,
       };
 
-      const response = await fetch(`http://localhost:3001/employees/${employee.id}`, {
+      const response = await fetch(`https://react-capstone-node-json-server.vercel.app/employees/${employee.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -215,7 +215,7 @@ const EmployeeDashboard = () => {
         employeePassword: passwordChangeData.newPassword,
       };
 
-      const response = await fetch(`http://localhost:3001/employees/${employee.id}`, {
+      const response = await fetch(`https://react-capstone-node-json-server.vercel.app/employees/${employee.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -256,7 +256,7 @@ const EmployeeDashboard = () => {
         },
       };
 
-      const response = await fetch(`http://localhost:3001/employees/${employee.id}`, {
+      const response = await fetch(`https://react-capstone-node-json-server.vercel.app/employees/${employee.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
