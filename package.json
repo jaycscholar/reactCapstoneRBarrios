@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "server": "json-server --watch src/data/employees.json --port 3001",
+    "start": "start /B npm run server && npm run dev",
     "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
     "build": "vite build",
     "lint": "eslint .",

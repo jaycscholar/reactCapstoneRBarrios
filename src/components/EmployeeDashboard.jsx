@@ -482,7 +482,7 @@ const EmployeeDashboard = () => {
           {/* Time Request Information */}
           {!timeRequestMode ? (
             <div className="bg-white rounded-lg shadow-md p-6 md:col-span-2">
-              <h2 className="text-xl font-bold text-gray-800 mb-4">🌞 Growing Season Leave</h2>
+              <h2 className="text-xl font-bold text-gray-800 mb-4">🌞 Time off Request</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
                   <p className="text-gray-600 text-sm">Start Date</p>
