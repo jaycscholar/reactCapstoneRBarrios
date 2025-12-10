@@ -313,23 +313,6 @@
       "newEmployeeFlag": true
     },
     {
-      "id": "1143",
-      "employeeName": "",
-      "employeeUser": "jose",
-      "employeePassword": "123",
-      "address": "",
-      "position": "",
-      "currentAssignment": "",
-      "timeRequest": {
-        "startDate": "",
-        "endDate": "",
-        "approved": false,
-        "reviewed": false,
-        "note": ""
-      },
-      "newEmployeeFlag": true
-    },
-    {
       "id": "ac43",
       "employeeName": "",
       "employeeUser": "Homer",

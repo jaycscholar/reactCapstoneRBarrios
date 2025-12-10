@@ -43,7 +43,7 @@ function BasicFormHandling() {
       setLoading(true);
       try {
         // Fetch all employees from the JSON server
-        const response = await fetch('https://react-capstone-node-json-server.vercel.app/employees');
+        const response = await fetch('http://localhost:3001/employees');
         const employees = await response.json();
 
         // Find employee matching the username

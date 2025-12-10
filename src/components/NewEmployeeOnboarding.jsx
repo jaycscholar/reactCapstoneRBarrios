@@ -13,7 +13,7 @@ const NewEmployeeOnboarding = () => {
     const fetchEmployeeData = async () => {
       try {
         setLoading(true);
-        const response = await fetch('https://react-capstone-node-json-server.vercel.app/employees');
+        const response = await fetch('http://localhost:3001/employees');
         const data = await response.json();
 
         const employeeData = data.find(
@@ -60,7 +60,7 @@ const NewEmployeeOnboarding = () => {
         newEmployeeFlag: false,
       };
 
-      const response = await fetch(`https://react-capstone-node-json-server.vercel.app/employees/${employee.id}`, {
+      const response = await fetch(`http://localhost:3001/employees/${employee.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
