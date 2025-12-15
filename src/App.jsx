@@ -26,7 +26,7 @@ const App = () => {
     <Router>
       <div className="App">
 
-        <header className="bg-gradient-to-r from-blue-600 to-blue-800 shadow-lg sticky top-0 z-50">
+        <header className="bg-gradient-to-r from-forest-700 to-forest-900 shadow-lg sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex justify-between items-center">
               <h3 className="text-white text-2xl font-bold">LeafCorp</h3>
@@ -59,28 +59,28 @@ const App = () => {
               <Link 
                 to='/LoginEmployee' 
                 onClick={() => setMenuOpen(false)}
-                className="block md:inline-block px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105 mb-2 md:mb-0"
+                className="block md:inline-block px-4 py-2 bg-forest-600 hover:bg-forest-500 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105 mb-2 md:mb-0"
               >
                 👤 Employee Login
               </Link>
               <Link 
                 to='/userDashboard' 
                 onClick={() => setMenuOpen(false)}
-                className="block md:inline-block px-4 py-2 bg-blue-500 hover:bg-blue-400 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105 mb-2 md:mb-0"
+                className="block md:inline-block px-4 py-2 bg-forest-600 hover:bg-forest-500 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105 mb-2 md:mb-0"
               >
                 📊 Employee Dashboard
               </Link>
               <Link 
                 to='/LoginHR' 
                 onClick={() => setMenuOpen(false)}
-                className="block md:inline-block px-4 py-2 bg-green-500 hover:bg-green-400 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105 mb-2 md:mb-0"
+                className="block md:inline-block px-4 py-2 bg-forest-700 hover:bg-forest-600 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105 mb-2 md:mb-0"
               >
                 👔 HR Login
               </Link>
               <Link 
                 to='/HRDashboard' 
                 onClick={() => setMenuOpen(false)}
-                className="block md:inline-block px-4 py-2 bg-green-500 hover:bg-green-400 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105 mb-2 md:mb-0"
+                className="block md:inline-block px-4 py-2 bg-forest-700 hover:bg-forest-600 text-white rounded-lg font-semibold transition duration-200 ease-in-out transform hover:scale-105 mb-2 md:mb-0"
               >
                 💼 HR Dashboard
               </Link>
